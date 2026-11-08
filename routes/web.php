@@ -20,7 +20,7 @@ Route::redirect('/', '/admin')->name('home');
 Route::redirect('/dashboard', '/admin')->name('dashboard');
 Route::redirect('/login', '/admin/login')->name('login');
 
-// Square QR Code Print Routes (Authenticated)
+// Authenticated Protected Routes
 Route::middleware(['web', 'auth'])->group(function (): void {
     Route::get('/admin/assets/{asset}/print-qr', [AssetQrPrintController::class, 'show'])->name('assets.print-qr');
     Route::get('/admin/assets-print-qr-bulk', [AssetQrPrintController::class, 'bulk'])->name('assets.print-qr-bulk');
